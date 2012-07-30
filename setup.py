@@ -39,7 +39,7 @@ setup(name='roscreate',
         "Programming Language :: Python",
         "License :: OSI Approved :: BSD License" ],
       description = "Creational templates for RoS",
-      long_description = open('README.rnd').read(),
+      long_description = open('README.md').read(),
       license = "BSD"
       )
 
