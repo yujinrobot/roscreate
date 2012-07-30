@@ -1,4 +1,12 @@
 
+FILE_EXISTS:=$(wildcard install.record)
+ifeq ($(strip $(FILE_EXISTS)),)
+    UNINSTALL_FILES:=
+else
+    UNINSTALL_FILES:=$(shell cat install.record)
+endif
+ 
+
 all:
 	@echo "  build    : build the python package."
 	@echo "  install  : install the python package into /usr/local."
@@ -11,7 +19,11 @@ build:
 	python setup.py build
 
 install:
-	sudo python setup.py install
+	sudo python setup.py install --record install.record
+
+# Use -f to ignore any warnings about it being an empty argument
+uninstall:
+	sudo rm -f ${UNINSTALL_FILES}
 
 distro:
 	python setup.py sdist
