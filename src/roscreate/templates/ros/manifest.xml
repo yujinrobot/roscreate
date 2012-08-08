@@ -11,8 +11,4 @@
   <url>http://ros.org/wiki/%(package)s</url>
 %(manifest_depends)s
 
-  <rosdep name="libqt4-dev"/>
-  <depend package="qt_build"/>
-  <depend package="roscpp"/>
- 
 </package>

@@ -37,9 +37,11 @@ def create_qt_ros_package(package, depends, type):
     print "Created qt package directories."
 
     # Qt text files
+    manifest_depends = ''.join(['  <depend package="%s"/>\n'%d for d in depends])
+    cmake_depends = ''.join(['%s '%d for d in depends])
     templates = get_qt_text_templates(package, type)
     for filename, template in templates.iteritems():
-        contents = instantiate_template(template, package, package, package, author_name(), depends)
+        contents = instantiate_template(template, package, package, package, author_name(), manifest_depends, cmake_depends)
         try:
             p = os.path.abspath(os.path.join(package, filename))
             f = open(p, 'w')

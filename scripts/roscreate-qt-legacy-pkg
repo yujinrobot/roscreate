@@ -13,7 +13,6 @@ if __name__ == "__main__":
     # no checking dependencies like old roscreate-pkg did
     # since we are usually not in a shell
     depends = args[1:]
-    depends = ''.join(['  <depend package="%s"/>\n'%d for d in depends])
 
     create_qt_ros_legacy_package(package, depends )
     print "\nPlease edit %s/manifest.xml and mainpage.dox to finish creating your package"%package

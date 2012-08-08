@@ -35,6 +35,6 @@ def read_template(tmplf):
     return t
 
 # This inserts the labelled variables into the template wherever the corresponding
-# %package, %brief, %description and %depends is found.
-def instantiate_template(template, package, brief, description, author, depends):
+# %package, %brief, %description %manifest_depends and %cmake_depends is found.
+def instantiate_template(template, package, brief, description, author, manifest_depends, cmake_depends):
     return template%locals()

@@ -8,7 +8,7 @@
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/%(package)s</url>
-%(depends)s
+%(manifest_depends)s
 
   <rosdep name="libqt4-dev"/>
   <depend package="qt_build"/>

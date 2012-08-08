@@ -13,47 +13,31 @@ def get_ros_text_templates(package, type):
     template_dir = os.path.join(os.path.dirname(__file__),'templates',type) 
     templates = {}
     templates['mainpage.dox'] = read_template(os.path.join(template_dir,'mainpage.dox'))
-    templates['Makefile'] = read_template(os.path.join(template_dir,'Makefile'))
     templates['CMakeLists.txt'] = read_template(os.path.join(template_dir,'CMakeLists.txt'))
     templates['manifest.xml'] = read_template(os.path.join(template_dir,'manifest.xml'))
-    templates[os.path.join('ui','main_window.ui')] = read_template(os.path.join(template_dir,'ui','main_window.ui'))
-    templates[os.path.join('src','main.cpp')] = read_template(os.path.join(template_dir,'src','main.cpp'))
-    templates[os.path.join('src','main_window.cpp')] = read_template(os.path.join(template_dir,'src','main_window.cpp'))
-    templates[os.path.join('src','qnode.cpp')] = read_template(os.path.join(template_dir,'src','qnode.cpp'))
-    templates[os.path.join('resources','images.qrc')] = read_template(os.path.join(template_dir,'resources','images.qrc'))
-    templates[os.path.join('include',package,'main_window.hpp')] = read_template(os.path.join(template_dir,'include','PACKAGE_NAME','main_window.hpp'))
-    templates[os.path.join('include',package,'qnode.hpp')] = read_template(os.path.join(template_dir,'include','PACKAGE_NAME','qnode.hpp'))
+    # Need a Makefile here for legacy type
     return templates
 
 def create_ros_package(package, depends, type):
     
     p = os.path.abspath(package)
-    os.makedirs(os.path.join(p,"src"))
-    os.makedirs(os.path.join(p,"include"))
-    os.makedirs(os.path.join(p,"include",package))
-    os.makedirs(os.path.join(p,"resources"))
-    os.makedirs(os.path.join(p,"resources","images"))
-    os.makedirs(os.path.join(p,"ui"))
-    print "Created qt package directories."
-
-    # Qt text files
+    os.makedirs(p) 
+    manifest_depends = ''.join(['  <depend package="%s"/>\n'%d for d in depends])
+    cmake_depends = ''.join(['%s '%d for d in depends])
+    p = os.path.abspath(package)
     templates = get_ros_text_templates(package, type)
     for filename, template in templates.iteritems():
-        contents = instantiate_template(template, package, package, package, author_name(), depends)
+        contents = instantiate_template(template, package, package, package, author_name(), manifest_depends, cmake_depends)
         try:
             p = os.path.abspath(os.path.join(package, filename))
             f = open(p, 'w')
-            f.write(contents)
             print "Created package file", p
+            f.write(contents)
         finally:
             f.close()
-    # Qt binary files
-    template_dir = os.path.join(os.path.dirname(__file__),'templates',type) 
-    shutil.copy(os.path.join(template_dir,'resources','images','icon.png'),
-                os.path.join(os.path.abspath(package),'resources','images','icon.png'))
     
 def create_ros_catkin_package(package, depends):
-    create_ros_package(package, depends, 'qt-ros')
+    create_ros_package(package, depends, 'ros')
 
 def create_ros_legacy_package(package, depends):
-    create_ros_package(package, depends, 'qt-ros-legacy')
+    create_ros_package(package, depends, 'ros-legacy')
