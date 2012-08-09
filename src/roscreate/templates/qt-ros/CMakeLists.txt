@@ -49,3 +49,4 @@ add_executable(%(package)s ${QT_SOURCES} ${QT_RESOURCES_CPP} ${QT_FORMS_HPP} ${Q
 target_link_libraries(%(package)s ${QT_LIBRARIES} ${ROS_LIBRARIES})
 install(TARGETS %(package)s RUNTIME DESTINATION bin)
 
+

@@ -28,7 +28,11 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 # Qt Environment
 ##############################################################################
 
-rosbuild_include(qt_build qt-ros)
+# Could use this, but qt-ros would need an updated deb, instead we'll move to catkin
+# rosbuild_include(qt_build qt-ros) 
+rosbuild_find_ros_package(qt_build)
+include(${qt_build_PACKAGE_PATH}/qt-ros.cmake)
+
 rosbuild_prepare_qt4(QtCore QtGui) # Add the appropriate components to the component list here
 
 ##############################################################################

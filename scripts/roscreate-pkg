@@ -1,20 +1,6 @@
 #!/usr/bin/env python
 
-from optparse import OptionParser
-from roscreate import create_ros_catkin_package
+import roscreate
 
 if __name__ == "__main__":
-    parser = OptionParser(usage="usage: %prog <package-name> [dependencies...]")
-    options, args = parser.parse_args()
-    if not args:
-        parser.error("you must specify a package name and optionally also list package dependencies")
-    package = args[0]
-
-    # no checking dependencies like old roscreate-pkg did
-    # since we are usually not in a shell
-    depends = args[1:]
-
-    create_ros_catkin_package(package, depends )
-    print "\nPlease edit %s/manifest.xml and mainpage.dox to finish creating your package"%package
-
-
+    roscreate.create_ros_package('ros')
