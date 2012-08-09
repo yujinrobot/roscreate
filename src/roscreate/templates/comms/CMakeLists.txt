@@ -11,39 +11,37 @@
 project(%(package)s)
 find_package(catkin)
 catkin_project(%(package)s
-  INCLUDE_DIRS include)
-find_package(ROS REQUIRED COMPONENTS std_msgs %(cmake_depends)s)
+  INCLUDE_DIRS include
+)
 
-include_directories(${ROS_INCLUDE_DIRS})
+include_directories(include)
 
 ##############################################################################
-# Ros Comms
+# Sources
 ##############################################################################
 
 add_message_files(
-    DIRECTORY msg
-    FILES Dude.msg
+  DIRECTORY msg
+  FILES
+  Dude.msg
 )
-    
-generate_messages()
+
+add_service_files(
+  DIRECTORY srv
+  FILES HelloDude.srv
+)
+
+generate_messages(DEPENDENCIES std_msgs %(cmake_depends)s)
 
 ##############################################################################
 # Install
 ##############################################################################
 
-install(FILES manifest.xml
-  DESTINATION share/%(package)s
-)
-
-install(DIRECTORY msg
-  DESTINATION share/%(package)s
-  PATTERN ".svn" EXCLUDE
-  PATTERN ".git" EXCLUDE
-)
-
-install(DIRECTORY include/%(package)s
-        DESTINATION include/%(package)s
+install(DIRECTORY include/
+        DESTINATION include
         FILES_MATCHING PATTERN "*.h"
         PATTERN ".svn" EXCLUDE
-        PATTERN ".git" EXCLUDE
-        )
+        PATTERN ".git" EXCLUDE)
+
+
+

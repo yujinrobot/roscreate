@@ -11,7 +11,7 @@
 project(%(package)s)
 find_package(catkin)
 catkin_project(%(package)s)
-find_package(ROS REQUIRED COMPONENTS qt_build roscpp)
+find_package(ROS REQUIRED COMPONENTS qt_build roscpp %(cmake_depends)s)
 
 include_directories(${ROS_INCLUDE_DIRS})
 
