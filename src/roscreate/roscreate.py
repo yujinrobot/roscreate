@@ -15,7 +15,8 @@ def get_ros_text_templates(package, type):
     templates['mainpage.dox'] = read_template(os.path.join(template_dir,'mainpage.dox'))
     templates['CMakeLists.txt'] = read_template(os.path.join(template_dir,'CMakeLists.txt'))
     templates['manifest.xml'] = read_template(os.path.join(template_dir,'manifest.xml'))
-    # Need a Makefile here for legacy type
+    if type == 'ros-legacy':
+        templates['Makefile'] = read_template(os.path.join(template_dir,'Makefile'))
     return templates
 
 def create_ros_package(package, depends, type):
