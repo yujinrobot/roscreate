@@ -33,16 +33,16 @@ doing it from sources here, because it lets you easily reference what is going o
 catkinized stacks.
 
     rosinstall --catkin /opt/mingw https://raw.github.com/stonier/win_ros/master/mingw_fuerte.rosinstall
-    mkdir build
-    cd build
-    cmake /opt/mingw
-    make -j5
+    > mkdir build
+    > cd build
+    > cmake /opt/mingw
+    > make -j5
 
 ### Create Stack/Package
 
-    cd /opt/mingw
-    roscreate-stack foo ros_comm std_msgs
-    cd foo
-    roscreate-cpp-pkg cfoo
+    > cd /opt/mingw
+    > roscreate-stack foo ros_comm std_msgs
+    > cd foo
+    > roscreate-cpp-pkg cfoo
 
     
