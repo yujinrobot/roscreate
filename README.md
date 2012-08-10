@@ -74,7 +74,7 @@ catkinized stacks.
 
 * Create main.cpp
 
-```
+```cpp
     #include <cfoo/cfoo.hpp>
     int main() {
       cfoo::Foo foo;
