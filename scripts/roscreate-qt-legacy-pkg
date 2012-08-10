@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import roscreate
+import roscreate2
 
 if __name__ == "__main__":
-    roscreate.create_qt_ros_package('qt-ros-legacy')
+    roscreate2.create_qt_ros_package('qt-ros-legacy')

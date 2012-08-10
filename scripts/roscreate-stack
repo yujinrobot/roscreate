@@ -3,4 +3,4 @@
 import roscreate2
 
 if __name__ == "__main__":
-    roscreate2.create_qt_ros_package('qt-ros')
+    roscreate2.create_stack()

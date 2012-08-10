@@ -1,0 +1,19 @@
+<stack>
+  <name>%(name)s</name>
+  <version>0.1.0</version>
+  <description brief="%(brief)s">
+
+     %(description)s
+
+  </description>
+  <author>Maintained by %(author)s</author>
+  <license>BSD</license>  
+  <copyright>%(author)s</copyright>
+  <review status="experimental" notes=""/>
+  <url>http://ros.org/wiki/%(name)s</url>
+%(manifest_depends)s
+  
+  <!-- Example stack dependencies -->
+  <!-- <build_depends>ros</build_depends>-->
+  <!-- <build_depends>ros_comm</build_depends>-->
+</stack>

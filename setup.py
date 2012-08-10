@@ -3,14 +3,14 @@ from distutils.core import setup
 import sys
 sys.path.insert(0, 'src')
 
-from roscreate import __version__
+from roscreate2 import __version__
 
 setup(name='roscreate',
       version= __version__,
-      packages=['roscreate'],
+      packages=['roscreate2'],
       package_dir = {'':'src'},
-      scripts = ["scripts/roscreate-pkg","scripts/roscreate-legacy-pkg", "scripts/roscreate-comms-pkg", "scripts/roscreate-qt-pkg","scripts/roscreate-qt-legacy-pkg"],
-      package_data = {'roscreate': [
+      scripts = ["scripts/roscreate-pkg","scripts/roscreate-legacy-pkg", "scripts/roscreate-comms-pkg", "scripts/roscreate-qt-pkg","scripts/roscreate-qt-legacy-pkg","scripts/roscreate-stack"],
+      package_data = {'roscreate2': [
            'templates/common/mainpage.dox',
            'templates/common/Makefile',
            'templates/qt-ros/CMakeLists.txt',
@@ -35,6 +35,8 @@ setup(name='roscreate',
            'templates/comms/manifest.xml',
            'templates/comms/msg/Dude.msg',
            'templates/comms/srv/HelloDude.srv',
+           'templates/stack/CMakeLists.txt',
+           'templates/stack/stack.xml',
            ]},
       author = "Daniel Stonier",
       author_email = "d.stonier@gmail.com",
