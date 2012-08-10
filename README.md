@@ -20,7 +20,11 @@ Legacy environment shortcuts
 
 ## Tutorial
 
-This shows how to use the scripts to build a stack/cpp package catkin style.
+This shows how to use the scripts to build a stack/cpp package catkin style. It is configured
+to work on ubuntu precise with the ros fuerte sources.
+
+    > sudo apt-get install python-pip
+    > sudo pip install --upgrade roscreate
 
 ### Prep Workspace
 
@@ -28,9 +32,7 @@ The following downloads the mingw fuerte rosinstaller. Don't mind the fact that 
 mingw installer. It is just a minimal set of ros sources that is tagged at a particular
 version guaranteed to work with these roscreate shortcuts.
 
-Note that you can also do it working off the apt-get rosinstalled environment. I'm 
-doing it from sources here, because it lets you easily reference what is going on with other
-catkinized stacks.
+Note that you can also do it working off the apt-get rosinstalled environment (much less building required). I'm doing it from a complete set of sources here, because it lets you easily reference what is going on inside the other catkinized stacks.
 
     > rosinstall --catkin ~/rosws/src https://raw.github.com/stonier/win_ros/master/mingw_fuerte.rosinstall
     > mkdir -p ~/rosws/build
@@ -46,7 +48,13 @@ catkinized stacks.
     > cd foo
     > roscreate-cpp-pkg cfoo
 
-* Edit ~/rosws/src/foo/stack.xml and add cfoo to the subdirectories to be included.
+* Edit ~/rosws/src/foo/stack.xml and add cfoo to the subdirectories to be included. Like this:
+
+    foreach(subdir
+        cfoo
+        )
+        add_subdirectory(${subdir})
+    endforeach()
 
 ### Build
 
