@@ -32,7 +32,7 @@ Note that you can also do it working off the apt-get rosinstalled environment. I
 doing it from sources here, because it lets you easily reference what is going on with other
 catkinized stacks.
 
-    rosinstall --catkin ~/rosws/src https://raw.github.com/stonier/win_ros/master/mingw_fuerte.rosinstall
+    > rosinstall --catkin ~/rosws/src https://raw.github.com/stonier/win_ros/master/mingw_fuerte.rosinstall
     > mkdir -p ~/rosws/build
     > mkdir -p ~/rosws/install
     > cd ~/rosws/build
@@ -74,12 +74,14 @@ catkinized stacks.
 
 * Create main.cpp
 
+```
     #include <cfoo/cfoo.hpp>
     int main() {
       cfoo::Foo foo;
       foo.helloDude();
       return 0;
     }
+```
 
 * Edit CMakeLists.txt and uncomment the three lines for the executable example
 * Edit foo/CMakeLists.txt and add tfoo to the subdirectories to be added to the build.
