@@ -1,3 +1,5 @@
 install.record
 *.pyc
 build
+MANIFEST
+dist
