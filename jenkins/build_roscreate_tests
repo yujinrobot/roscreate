@@ -6,7 +6,7 @@ mkdir -p ${WORKSPACE}/build
 mkdir -p ${WORKSPACE}/install
 cd ${WORKSPACE}/build
 cmake -DCMAKE_INSTALL_PREFIX=~/rosws/install ../src
-make -j5
+make
 cd ${WORKSPACE}/src
 roscreate-stack foo ros_comm std_msgs
 cd foo
@@ -19,7 +19,7 @@ wget https://raw.github.com/yujinrobot/roscreate/master/jenkins/CMakeLists.txt
 cd ..
 wget https://raw.github.com/yujinrobot/roscreate/master/jenkins/CMakeLists.stack.txt -O CMakeLists.txt
 cd ${WORKSPACE}/build
-make -j5
+make
 make install
 
 
