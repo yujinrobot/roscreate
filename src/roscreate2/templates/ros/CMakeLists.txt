@@ -12,12 +12,11 @@ project(%(name)s)
 find_package(catkin)
 
 # Some other arguments to this function:
-#   INCLUDE_DIRS: export include directories
+#   INCLUDE_DIRS: export include directories (typically 'INCLUDE_DIRS include')
 #   LIBRARIES   : export cpp libraries (used to create pkg-config and cmake-config modules)
-#   CFG_EXTRAS  : export cmake modules (e.g.CFG_EXTRAS my-module.cmake)
+#   CFG_EXTRAS  : export cmake modules (e.g.'CFG_EXTRAS my-module.cmake')
 #   DEPENDS     : 
-catkin_project(%(name)s
-  INCLUDE_DIRS include)
+catkin_project(%(name)s)
 
 # The following generates ROS_INCLUDE_DIRS and ROS_LIBRARIES for use with cpp targets
 find_package(ROS REQUIRED COMPONENTS %(cmake_depends)s)

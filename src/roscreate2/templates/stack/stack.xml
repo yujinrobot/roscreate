@@ -12,8 +12,4 @@
   <review status="experimental" notes=""/>
   <url>http://ros.org/wiki/%(name)s</url>
 %(manifest_depends)s
-  
-  <!-- Example stack dependencies -->
-  <!-- <build_depends>ros</build_depends>-->
-  <!-- <build_depends>ros_comm</build_depends>-->
 </stack>
