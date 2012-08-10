@@ -85,7 +85,6 @@ endforeach()
 
     > cd ~/rosws/build
     > cmake .
-    > cd foo
     > make -j5
 
 ### Run
@@ -99,6 +98,8 @@ Shut down, and then test tfoo which needs libcfoo (don't need a roscore, it is p
     > cd foo/tfoo/bin
     > ldd tfoo
     > ./tfoo
+    > OR
+    > rosrun tfoo tfoo
 
 ### Install
 
