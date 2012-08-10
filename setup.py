@@ -13,6 +13,7 @@ setup(name='roscreate',
       package_data = {'roscreate2': [
            'templates/common/mainpage.dox',
            'templates/common/Makefile',
+           'templates/common/manifest.xml',
            'templates/qt-ros/CMakeLists.txt',
            'templates/qt-ros/src/*.cpp',
            'templates/qt-ros/ui/*.ui',

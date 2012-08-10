@@ -12,8 +12,8 @@ def get_templates(package):
     template_dir = os.path.join(os.path.dirname(__file__),'templates','cpp') 
     templates = {}
     templates['mainpage.dox'] = utils.read_template(os.path.join(template_common_dir,'mainpage.dox'))
+    templates['manifest.xml'] = utils.read_template(os.path.join(template_common_dir,'manifest.xml'))
     templates['CMakeLists.txt'] = utils.read_template(os.path.join(template_dir,'CMakeLists.txt'))
-    templates['manifest.xml'] = utils.read_template(os.path.join(template_dir,'manifest.xml'))
     templates[os.path.join('src','main.cpp')] = utils.read_template(os.path.join(template_dir,'src','main.cpp'))
     templates[os.path.join('src','CMakeLists.txt')] = utils.read_template(os.path.join(template_dir,'src','CMakeLists.txt'))
     templates[os.path.join('src','lib',package+'.cpp')] = utils.read_template(os.path.join(template_dir,'src','lib','package_name.cpp'))

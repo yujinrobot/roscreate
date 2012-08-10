@@ -12,8 +12,8 @@ def get_ros_text_templates(type):
     template_dir = os.path.join(os.path.dirname(__file__),'templates',type) 
     templates = {}
     templates['mainpage.dox'] = utils.read_template(os.path.join(template_common_dir,'mainpage.dox'))
+    templates['manifest.xml'] = utils.read_template(os.path.join(template_common_dir,'manifest.xml'))
     templates['CMakeLists.txt'] = utils.read_template(os.path.join(template_dir,'CMakeLists.txt'))
-    templates['manifest.xml'] = utils.read_template(os.path.join(template_dir,'manifest.xml'))
     if type == 'ros-legacy':
         templates['Makefile'] = utils.read_template(os.path.join(template_common_dir,'Makefile'))
     return templates
