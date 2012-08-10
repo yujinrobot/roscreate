@@ -10,7 +10,9 @@
 
 project(%(name)s)
 find_package(catkin)
-catkin_project(%(name)s)
+catkin_project(%(name)s
+    DEPENDS %(cmake_depends)s
+)
 find_package(ROS REQUIRED COMPONENTS %(cmake_depends)s)
 
 include_directories(${ROS_INCLUDE_DIRS})

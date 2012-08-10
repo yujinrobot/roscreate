@@ -12,6 +12,7 @@ project(%(name)s)
 find_package(catkin)
 catkin_project(%(name)s
   INCLUDE_DIRS include
+  DEPENDS %(cmake_depends)s
 )
 
 include_directories(include)

@@ -16,7 +16,9 @@ find_package(catkin)
 #   LIBRARIES   : export cpp libraries (used to create pkg-config and cmake-config modules)
 #   CFG_EXTRAS  : export cmake modules (e.g.'CFG_EXTRAS my-module.cmake')
 #   DEPENDS     : 
-catkin_project(%(name)s)
+catkin_project(%(name)s
+    DEPENDS %(cmake_depends)s
+)
 
 # The following generates ROS_INCLUDE_DIRS and ROS_LIBRARIES for use with cpp targets
 find_package(ROS REQUIRED COMPONENTS %(cmake_depends)s)

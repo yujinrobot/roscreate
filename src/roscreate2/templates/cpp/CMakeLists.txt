@@ -18,7 +18,9 @@ find_package(catkin)
 #   DEPENDS     : same as your manifest dependencies (pkg-config, cmake-config again)
 catkin_project(%(name)s
   LIBRARIES %(name)s
-  INCLUDE_DIRS include)
+  INCLUDE_DIRS include
+  DEPENDS %(cmake_depends)s
+  )
 
 # The following generates ROS_INCLUDE_DIRS and ROS_LIBRARIES for use with cpp targets
 find_package(ROS REQUIRED COMPONENTS %(cmake_depends)s)

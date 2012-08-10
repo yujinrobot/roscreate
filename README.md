@@ -20,8 +20,13 @@ Legacy environment shortcuts
 
 ## Tutorial
 
-This shows how to use the scripts to build a stack/cpp package catkin style. It is configured
-to work on ubuntu precise with the ros fuerte sources.
+This shows how to use the scripts to build a stack/cpp package catkin style. The cpp 
+configuration is your typical cpp ros package - it exports some headers, builds a library 
+and also a test executable.
+
+### Install Roscreate
+
+It is configured to work on ubuntu precise with the ros fuerte sources.
 
     > sudo apt-get install python-pip
     > sudo pip install --upgrade roscreate
@@ -41,48 +46,15 @@ Note that you can also do it working off the apt-get rosinstalled environment (m
     > cmake -DCMAKE_INSTALL_PREFIX=~/rosws/install ../src
     > make -j5
 
-### Create Stack/Package
+### Create Stack/Packages
 
     > cd ~/rosws/src
     > roscreate-stack foo ros_comm std_msgs
     > cd foo
     > roscreate-cpp-pkg cfoo
 
-* Edit ~/rosws/src/foo/stack.xml and add cfoo to the subdirectories to be included. Like this:
+We'll also create a dependant test package to make sure headers and libraries are exporting correctly.
 
-```
-foreach(subdir
-    cfoo
-    )
-    add_subdirectory(${subdir})
-endforeach()
-```
-
-### Build
-
-    > cd ~/rosws/build
-    > cmake .
-    > cd foo/cfoo
-    > make -j5
-
-### Test
-
-    > cd ~/rosws/build
-    > . env.sh
-    > roslaunch cfoo test.launch
-    > CTRL-C
-    > exit
-
-Just making sure to exit here, otherwise we'll get a conflict with ros stack's roscreate-pkg which we use below.
-
-### Install
-
-    > cd ~/rosws/build/foo/cfoo 
-    > make install
-
-### Create a dependant package
-
-    > cd ~/rosws/src/foo
     > roscreate-pkg tfoo cfoo
     > cd tfoo
 
@@ -98,20 +70,40 @@ int main() {
 ```
 
 * Edit CMakeLists.txt and uncomment the three lines for the executable example
-* Edit foo/CMakeLists.txt and add tfoo to the subdirectories to be added to the build.
+* Edit ~/rosws/src/foo/stack.xml and add cfoo,tfoo to the subdirectories to be included. Like this:
 
-Finally build:
+```
+foreach(subdir
+    cfoo
+    tfoo
+    )
+    add_subdirectory(${subdir})
+endforeach()
+```
+
+### Build
 
     > cd ~/rosws/build
     > cmake .
-    > cd foo/tfoo
+    > cd foo
     > make -j5
 
-Test (don't need a roscore - this is pure c++)
+### Run
 
-    > cd ~/rows/build/foo/tfoo/bin
+    > cd ~/rosws/build
+    > . env.sh
+    > roslaunch cfoo test.launch
+
+Shut down, and then test tfoo which needs libcfoo (don't need a roscore, it is pure c++):
+
+    > cd foo/tfoo/bin
+    > ldd tfoo
     > ./tfoo
 
+### Install
+
+    > cd ~/rosws/build/foo/cfoo 
+    > make install
 
 ## Conclusions
 
