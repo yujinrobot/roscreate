@@ -9,7 +9,7 @@ setup(name='roscreate',
       version= __version__,
       packages=['roscreate2'],
       package_dir = {'':'src'},
-      scripts = ["scripts/roscreate-pkg","scripts/roscreate-legacy-pkg", "scripts/roscreate-comms-pkg", "scripts/roscreate-qt-pkg","scripts/roscreate-qt-legacy-pkg","scripts/roscreate-stack","scripts/roscreate-cpp-pkg"],
+      scripts = ["scripts/roscreate-pkg","scripts/roscreate-catkin-pkg","scripts/roscreate-legacy-pkg", "scripts/roscreate-comms-pkg", "scripts/roscreate-qt-pkg","scripts/roscreate-qt-legacy-pkg","scripts/roscreate-stack","scripts/roscreate-cpp-pkg"],
       package_data = {'roscreate2': [
            'templates/common/mainpage.dox',
            'templates/common/Makefile',

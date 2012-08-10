@@ -1,0 +1,8 @@
+#!/usr/bin/env python
+
+import roscreate2
+
+if __name__ == "__main__":
+    print "This is an alias for roscreate-pkg"
+    print "Use to avoid conflicts with an existing roscreate-pkg"
+    roscreate2.create_ros_package('ros')
