@@ -10,6 +10,7 @@ endif
 all:
 	@echo "  build    : build the python package."
 	@echo "  install  : install the python package into /usr/local."
+	@echo "  uninstall: uninstall the python package from /usr/local."
 	@echo "  distro   : build the distribution tarball."
 	@echo "  register : register the package with PyPI."
 	@echo "  upload   : upload the package to PyPI."

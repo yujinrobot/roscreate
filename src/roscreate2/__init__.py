@@ -1,5 +1,5 @@
 
-__version__ = '0.1.5'
+__version__ = '0.1.6'
 
 from .qtcreate import create_qt_ros_package
 from .roscreate import create_ros_package
