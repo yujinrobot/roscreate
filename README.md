@@ -60,6 +60,10 @@ catkinized stacks.
     > cd ~/rosws/build
     > . env.sh
     > roslaunch cfoo test.launch
+    > CTRL-C
+    > exit
+
+Just making sure to exit here, otherwise we'll get a conflict with ros stack's roscreate-pkg which we use below.
 
 ### Install
 
@@ -72,7 +76,7 @@ catkinized stacks.
     > roscreate-pkg tfoo cfoo
     > cd tfoo
 
-* Create main.cpp
+* Create tfoo/main.cpp
 
 ```cpp
     #include <cfoo/cfoo.hpp>
@@ -97,4 +101,8 @@ Test (don't need a roscore - this is pure c++)
 
     > cd ~/rows/build/foo/tfoo/bin
     > ./tfoo
- 
+
+
+## Conclusions
+
+If all works, celebreate with a beer! If not, submit an issue here (even better, create a pull request) and I'll get right to it.
