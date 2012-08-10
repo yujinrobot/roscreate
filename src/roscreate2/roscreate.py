@@ -7,7 +7,7 @@ import utils
 # Template
 ##############################################################################
 
-def get_ros_text_templates(package, type):
+def get_ros_text_templates(type):
     template_common_dir = os.path.join(os.path.dirname(__file__),'templates','common') 
     template_dir = os.path.join(os.path.dirname(__file__),'templates',type) 
     templates = {}
@@ -27,7 +27,7 @@ def create_ros_package(type):
     manifest_depends = ''.join(['  <depend package="%s"/>\n'%d for d in depends])
     cmake_depends = ''.join(['%s '%d for d in depends])
     p = os.path.abspath(package)
-    templates = get_ros_text_templates(package, type)
+    templates = get_ros_text_templates(type)
     for filename, template in templates.iteritems():
         contents = utils.instantiate_template(template, package, package, package, utils.author_name(), manifest_depends, cmake_depends)
         try:

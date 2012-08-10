@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+
+import roscreate2
+
+if __name__ == "__main__":
+    roscreate2.create_cpp_package()
