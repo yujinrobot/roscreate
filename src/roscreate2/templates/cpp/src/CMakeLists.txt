@@ -10,4 +10,9 @@ add_subdirectory(lib)
 
 add_executable(test_%(name)s main.cpp)
 target_link_libraries(test_%(name)s %(name)s)
- 
+
+##############################################################################
+# Installs
+##############################################################################
+
+install(TARGETS test_%(name)s RUNTIME DESTINATION share/%(name)s/bin)

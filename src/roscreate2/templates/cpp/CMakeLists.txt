@@ -29,3 +29,20 @@ include_directories(${ROS_INCLUDE_DIRS})
 ##############################################################################
 
 add_subdirectory(src)
+
+##############################################################################
+# Additional Installs
+##############################################################################
+
+install(DIRECTORY include/
+        DESTINATION include
+        FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp"
+        PATTERN ".svn" EXCLUDE
+        )
+
+install(DIRECTORY launch/
+        DESTINATION share/%(name)s/launch
+        FILES_MATCHING PATTERN "*.launch"
+        PATTERN ".svn" EXCLUDE
+        )
+        

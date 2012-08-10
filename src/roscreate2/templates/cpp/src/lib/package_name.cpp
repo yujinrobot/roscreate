@@ -12,13 +12,12 @@
 ** Includes
 *****************************************************************************/
 
-#include <iostream>
 #include "../../include/%(name)s/%(name)s.hpp"
 
 namespace %(name)s
 {
   void Foo::helloDude() {
-    std::cout << "Hello Dude" << std::endl;
+    ROS_INFO("Hello Dude");
   }
 }
 

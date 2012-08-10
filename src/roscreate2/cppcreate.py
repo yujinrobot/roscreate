@@ -19,11 +19,12 @@ def get_templates(package):
     templates[os.path.join('src','lib',package+'.cpp')] = utils.read_template(os.path.join(template_dir,'src','lib','package_name.cpp'))
     templates[os.path.join('src','lib','CMakeLists.txt')] = utils.read_template(os.path.join(template_dir,'src','lib','CMakeLists.txt'))
     templates[os.path.join('include',package,package+'.hpp')] = utils.read_template(os.path.join(template_dir,'include','PACKAGE_NAME','package_name.hpp'))
+    templates[os.path.join('launch','test.launch')] = utils.read_template(os.path.join(template_dir,'launch','test.launch'))
     return templates
 
 def create_cpp_package():
 
-    (package, depends) = utils.parse_arguments(['qt_build','roscpp'])
+    (package, depends) = utils.parse_arguments(['roscpp','std_msgs'])
     # Make directories
     p = os.path.abspath(package)
     os.makedirs(os.path.join(p,"src"))
@@ -33,7 +34,9 @@ def create_cpp_package():
     os.makedirs(os.path.join(p,"include"))
     print "Created package directory 'include'"
     os.makedirs(os.path.join(p,"include",package))
-    print "Created package directory 'include/'", package
+    print "Created package directory 'include/%s'"%package
+    os.makedirs(os.path.join(p,"launch"))
+    print "Created package directory 'launch'"
 
     # Text files
     manifest_depends = ''.join(['  <depend package="%s"/>\n'%d for d in depends])

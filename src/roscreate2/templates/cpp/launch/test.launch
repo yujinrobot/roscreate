@@ -1,0 +1,3 @@
+<launch>
+  <node pkg="%(name)s" type="test_%(name)s" name="talker"  output="screen"/>
+</launch>

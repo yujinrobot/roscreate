@@ -10,3 +10,12 @@ file(GLOB SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.cpp)
 
 add_library(%(name)s ${SOURCES})
 target_link_libraries(%(name)s ${ROS_LIBRARIES})
+
+##############################################################################
+# Installs
+##############################################################################
+
+install(TARGETS %(name)s
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  )
