@@ -50,11 +50,13 @@ Note that you can also do it working off the apt-get rosinstalled environment (m
 
 * Edit ~/rosws/src/foo/stack.xml and add cfoo to the subdirectories to be included. Like this:
 
-    foreach(subdir
-        cfoo
-        )
-        add_subdirectory(${subdir})
-    endforeach()
+```
+foreach(subdir
+    cfoo
+    )
+    add_subdirectory(${subdir})
+endforeach()
+```
 
 ### Build
 
@@ -87,12 +89,12 @@ Just making sure to exit here, otherwise we'll get a conflict with ros stack's r
 * Create tfoo/main.cpp
 
 ```cpp
-    #include <cfoo/cfoo.hpp>
-    int main() {
-      cfoo::Foo foo;
-      foo.helloDude();
-      return 0;
-    }
+#include <cfoo/cfoo.hpp>
+int main() {
+  cfoo::Foo foo;
+  foo.helloDude();
+  return 0;
+}
 ```
 
 * Edit CMakeLists.txt and uncomment the three lines for the executable example
