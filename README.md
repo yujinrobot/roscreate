@@ -9,9 +9,10 @@ Roscreate Shortcuts
 Catkin environment shortcuts
 
 * roscreate-pkg
+* roscreate-catkin-pkg : simple alias for roscreate-pkg to avoid conflicts with current roscreate-pkg.
 * roscreate-cpp-pkg
 * roscreate-comms-pkg
-* roscreate-qt-pkg (use with qt-ros stack)
+* roscreate-qt-pkg : use with qt-ros stack
 
 Legacy environment shortcuts
 
