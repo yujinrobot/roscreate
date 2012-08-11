@@ -36,16 +36,30 @@ cd ..\..
 goto End
 
 :Install
-python setup.py install --record install.record
+python setup.py install --record installed_files.txt
 goto End
 
 :UnInstall
+SetLocal EnableDelayedExpansion
+set UNINSTALL_FILES=
+if exist installed_files.txt (
+  echo Uninstalling files from the python directories
+  echo     Note: it doesn't clean directories.
+  for /F "delims=" %%i in (installed_files.txt) do (
+    set UNINSTALL_FILES=!UNINSTALL_FILES! %%i
+  )
+  rem echo !UNINSTALL_FILES!
+)
+rem Don't know why this won't work inside the if statement.
+rm -f %UNINSTALL_FILES%
+EndLocal
 goto End
 
 :Clean
 rd /S /Q %cd%\build
 rd /S /Q %cd%\dist
-rm MANIFEST
+rm -f MANIFEST
+rm -f installed_files.txt
 goto End
 
 :End

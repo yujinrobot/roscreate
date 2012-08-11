@@ -1,4 +1,5 @@
 install.record
+installed_files.txt
 *.pyc
 build
 MANIFEST
