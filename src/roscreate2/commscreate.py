@@ -39,5 +39,5 @@ def create_comms_package(type):
             print "Created package file", p
         finally:
             f.close()
-    utils.print_concluding_message(package)
+    utils.print_concluding_catkin_message(package)
     

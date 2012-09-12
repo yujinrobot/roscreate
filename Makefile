@@ -7,7 +7,7 @@ else
 endif
  
 
-all:
+help:
 	@echo "  build    : build the python package."
 	@echo "  install  : install the python package into /usr/local."
 	@echo "  uninstall: uninstall the python package from /usr/local."

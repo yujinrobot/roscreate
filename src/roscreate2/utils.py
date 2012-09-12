@@ -166,3 +166,6 @@ def dependencies_exist(depends, rospack=rospkg.RosPack()):
 def print_concluding_message(package):
     print "\nPlease edit %s/manifest.xml and mainpage.dox to finish creating your package"%package
 
+def print_concluding_catkin_message(package):
+    print "\n***** Please edit the stack CMakeLists.txt file and add the package subdirectory. *****\n"
+

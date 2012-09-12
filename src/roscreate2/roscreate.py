@@ -37,5 +37,8 @@ def create_ros_package(type):
             print "Created package file", p
         finally:
             f.close()
-    utils.print_concluding_message(package)
+    if type == 'ros-legacy':
+        utils.print_concluding_message(package)
+    else:
+        utils.print_concluding_catkin_message(package)
 

@@ -55,5 +55,9 @@ def create_qt_ros_package(type):
     template_dir = os.path.join(os.path.dirname(__file__),'templates',type) 
     shutil.copy(os.path.join(template_dir,'resources','images','icon.png'),
                 os.path.join(os.path.abspath(package),'resources','images','icon.png'))
-    utils.print_concluding_message(package)
+    if type == 'qt-ros-legacy':
+        utils.print_concluding_message(package)
+    else:
+        utils.print_concluding_catkin_message(package)
+    
     

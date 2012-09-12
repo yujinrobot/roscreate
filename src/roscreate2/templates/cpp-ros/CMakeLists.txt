@@ -42,4 +42,9 @@ install(DIRECTORY include/
         PATTERN ".svn" EXCLUDE
         )
 
-       
+install(DIRECTORY launch/
+        DESTINATION share/%(name)s/launch
+        FILES_MATCHING PATTERN "*.launch"
+        PATTERN ".svn" EXCLUDE
+        )
+        

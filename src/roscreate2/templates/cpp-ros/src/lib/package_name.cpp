@@ -13,12 +13,11 @@
 *****************************************************************************/
 
 #include "../../include/%(name)s/%(name)s.hpp"
-#include <iostream>
 
 namespace %(name)s
 {
   void Foo::helloDude() {
-    std::cout << "Hello Dude" << std::endl;
+    ROS_INFO("Hello Dude");
   }
 }
 
