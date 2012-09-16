@@ -167,5 +167,5 @@ def print_concluding_message(package):
     print "\nPlease edit %s/manifest.xml and mainpage.dox to finish creating your package"%package
 
 def print_concluding_catkin_message(package):
-    print "\n***** Please edit the stack CMakeLists.txt file and add the package subdirectory. *****\n"
+    print "\n***** Important - Update your Stack Info *****\n  1) edit the stack CMakeLists.txt file and add the package subdirectory.\n  2) edit the stack.xml and add your <build_depends> and <depends> tags\n"
 
