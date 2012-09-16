@@ -9,7 +9,9 @@ project(%(name)s)
 # Catkin
 ##############################################################################
 
-# Add other stack dependencies here (space separated package (not stack) list)
+# Add other dependencies required by all your packages (reduces the number
+# of find_package calls you have to make if using a particular package alot)
+# Note: It is a space separated package (not stack) list
 find_package(ROS REQUIRED COMPONENTS catkin)
 catkin_stack()
 

@@ -12,4 +12,24 @@
   <review status="experimental" notes=""/>
   <url>http://ros.org/wiki/%(name)s</url>
 %(manifest_depends)s
+
+  <!-- 
+    Put specific stack buildtime rosdep and ros dependencies here 
+    e.g. for all stacks, you'll need catkin
+    e.g. for most comms stacks, you'll need genmsg
+  -->
+  <build_depends>catkin</build_depends>
+  <!-- <build_depends>genmsg</build_depends> -->
+
+  <!-- 
+    Put specific stack buildtime/runtime rosdep and ros dependencies here 
+    e.g. for most comms stacks, you'll need std_msgs
+    e.g. for most node based stacks, you'll need ros_comm
+  -->
+  <!-- <depends>ros_comm</depends> -->
+
+  <!-- 
+    Later there will be specific runtime_depends and test 
+    dependencies as well 
+  --> 
 </stack>
