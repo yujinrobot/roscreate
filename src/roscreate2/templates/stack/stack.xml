@@ -26,6 +26,7 @@
     e.g. for most comms stacks, you'll need std_msgs
     e.g. for most node based stacks, you'll need ros_comm
   -->
+  <!-- <depends>std_msgs</depends> -->
   <!-- <depends>ros_comm</depends> -->
 
   <!-- 

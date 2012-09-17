@@ -1,4 +1,5 @@
-
 0.1.8
  - Better commenting for stack creation, highlight what the xml depends and cmake required does.
  - Provide a hint at the end of creating a catkin package to edit the stack appropriately.
+0.1.7
+ - roscreate-cpp-pkg (pure c++ pkg) and roscreate-cpp-ros-pkg (ros c++ pkg)
