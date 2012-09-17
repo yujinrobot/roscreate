@@ -9,10 +9,11 @@
 ##############################################################################
 
 project(%(name)s)
-find_package(catkin)
 catkin_project(%(name)s
     DEPENDS %(cmake_depends)s
 )
+# Move this call to stack.xml if you are calling find_package on a particular
+# component alot.
 find_package(ROS REQUIRED COMPONENTS %(cmake_depends)s)
 
 include_directories(${ROS_INCLUDE_DIRS})

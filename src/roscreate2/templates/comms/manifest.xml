@@ -11,6 +11,6 @@
   <url>http://ros.org/wiki/%(name)s</url>
 %(manifest_depends)s
 
-  <depend package="std_msgs"/>
+  <!-- don't need any depends info in the manifest anymore -->
  
 </package>

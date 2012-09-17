@@ -12,7 +12,8 @@ project(%(name)s)
 # Add other dependencies required by all your packages (reduces the number
 # of find_package calls you have to make if using a particular package alot)
 # Note: It is a space separated package (not stack) list
-find_package(ROS REQUIRED COMPONENTS catkin)
+# Note: if you find_package here, you don't need to do it in the packages
+# find_package(ROS REQUIRED COMPONENTS catkin)
 catkin_stack()
 
 ##############################################################################

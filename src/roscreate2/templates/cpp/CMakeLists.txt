@@ -9,7 +9,6 @@
 ##############################################################################
 
 project(%(name)s)
-find_package(catkin)
 
 # Some other arguments to this function:
 #   INCLUDE_DIRS: export include directories
@@ -23,6 +22,8 @@ catkin_project(%(name)s
   )
 
 # The following generates ROS_INCLUDE_DIRS and ROS_LIBRARIES for use with cpp targets
+# Move this call to stack.xml if you are calling find_package on a particular
+# component alot.
 find_package(ROS REQUIRED COMPONENTS %(cmake_depends)s)
 include_directories(${ROS_INCLUDE_DIRS})
 
