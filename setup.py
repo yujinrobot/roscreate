@@ -64,7 +64,10 @@ setup(name='roscreate',
         "Programming Language :: Python",
         "License :: OSI Approved :: BSD License" ],
       description = "Creational templates for RoS",
-      long_description = open('README.md').read(),
+      long_description = "Refer to the documentation at https://github.com/yujinrobot/roscreate.",
       license = "BSD"
       )
+
+# This no longer works...it has to be a special parsable syntax of pypi's.
+#      long_description = open('README.md').read(),
 
