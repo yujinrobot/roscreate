@@ -20,25 +20,28 @@ def get_ros_text_templates(type):
 
 def create_ros_package(type):
     
-    (package, depends) = utils.parse_arguments()
-
-    p = os.path.abspath(package)
-    os.makedirs(p) 
-    manifest_depends = ''.join(['  <depend package="%s"/>\n'%d for d in depends])
-    cmake_depends = ''.join(['%s '%d for d in depends])
-    p = os.path.abspath(package)
-    templates = get_ros_text_templates(type)
-    for filename, template in templates.iteritems():
-        contents = utils.instantiate_template(template, package, package, package, utils.author_name(), manifest_depends, cmake_depends)
-        try:
-            p = os.path.abspath(os.path.join(package, filename))
-            f = open(p, 'w')
-            f.write(contents.encode('utf-8'))
-            print "Created package file", p
-        finally:
-            f.close()
-    if type == 'ros-legacy':
-        utils.print_concluding_message(package)
-    else:
-        utils.print_concluding_catkin_message(package)
+	is_catkin=True
+	if type == 'ros-legacy':
+		is_catkin=False
+	(package, depends) = utils.parse_arguments([], is_catkin)
+			
+	p = os.path.abspath(package)
+	os.makedirs(p) 
+	manifest_depends = ''.join(['  <depend package="%s"/>\n'%d for d in depends])
+	cmake_depends = ''.join(['%s '%d for d in depends])
+	p = os.path.abspath(package)
+	templates = get_ros_text_templates(type)
+	for filename, template in templates.iteritems():
+		contents = utils.instantiate_template(template, package, package, package, utils.author_name(), manifest_depends, cmake_depends)
+		try:
+			p = os.path.abspath(os.path.join(package, filename))
+			f = open(p, 'w')
+			f.write(contents.encode('utf-8'))
+			print "Created package file", p
+		finally:
+			f.close()
+	if type == 'ros-legacy':
+		utils.print_concluding_message(package)
+	else:
+		utils.print_concluding_catkin_message(package)
 
