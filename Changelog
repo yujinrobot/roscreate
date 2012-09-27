@@ -1,3 +1,5 @@
+0.1.10
+ - avoid checking ROS_ROOT for catkin. only (qt-ros-legacy,legacy-pkg) are trying and handling dependencies
 0.1.9
  - Better commenting for generating action messages
 0.1.8
