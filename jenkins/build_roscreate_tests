@@ -2,7 +2,7 @@
 
 sudo apt-get install python-pip python-vcstools python-rosinstall python-rospkg python-rosdep
 sudo pip install --upgrade roscreate
-rosinstall --catkin ${WORKSPACE}/src https://raw.github.com/stonier/win_ros/master/mingw_unstable.rosinstall
+rosinstall --catkin ${WORKSPACE}/src https://raw.github.com/stonier/win_ros/master/mingw_fuerte.rosinstall
 mkdir -p ${WORKSPACE}/build
 mkdir -p ${WORKSPACE}/install
 cd ${WORKSPACE}/build
